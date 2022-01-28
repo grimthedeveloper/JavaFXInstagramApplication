@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.grim.javainstagramtest.HelloController">
+   <AnchorPane prefHeight="420.0" prefWidth="420.0">
+      <children>
+         <Label layoutX="40.0" layoutY="202.0" text="Instagram Kullanıcı Adı:" />
+         <TextField fx:id="username" layoutX="179.0" layoutY="198.0" />
+         <PasswordField fx:id="pass" layoutX="179.0" layoutY="252.0" />
+         <Button layoutX="190.0" layoutY="326.0" mnemonicParsing="false" onAction="#login" text="Giriş" />
+         <Label layoutX="86.0" layoutY="256.0" prefHeight="17.0" prefWidth="32.0" text="Şifre:" />
+         <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="135.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="https://seeklogo.com/images/I/instagram-new-2016-logo-D9D42A0AD4-seeklogo.com.png" />
+            </image>
+         </ImageView>
+         <ProgressBar layoutX="110.0" layoutY="361.0" prefWidth="200.0" progress="0.0" />
+         <Label layoutX="166.0" layoutY="389.0" prefHeight="17.0" prefWidth="49.0" text="Bağlantı:" />
+         <Label fx:id="status" layoutX="225.0" layoutY="389.0" text="-" />
+      </children>
+   </AnchorPane>
+</VBox>
