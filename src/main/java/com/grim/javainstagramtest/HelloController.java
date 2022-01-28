@@ -66,9 +66,32 @@ public class HelloController {
 
                     FeedUserResponse userFeed = new FeedUserRequest(usernameInfoRequest.getUser().getPk()).execute(client).join();
 
+                    System.out.println("---------> " + userFeed.isMore_available());
+                    System.out.println("---------> " + userFeed.getNext_max_id());
+
                     userFeed.getItems().forEach(item -> {
-                        System.out.println(item.getCaption().getText());
+                        if (item.getCaption() == null){
+                            System.out.println();
+                        }else{
+                            System.out.println(item.getCaption().getText() + "\n");
+                        }
                     });
+
+                    while (userFeed.isMore_available()){
+                        System.out.println("Entered!");
+                        userFeed = new FeedUserRequest(usernameInfoRequest.getUser().getPk(),userFeed.getNext_max_id()).execute(client).join();
+                        System.out.println("---------> " + userFeed.isMore_available());
+                        System.out.println("---------> " + userFeed.getNext_max_id());
+                        userFeed.getItems().forEach(item -> {
+                            if (item.getCaption() == null){
+                                System.out.println();
+                            }else{
+                                System.out.println(item.getCaption().getText() + "\n");
+                            }
+                        });
+                        System.out.println("Done!");
+                    }
+
                 }catch (Exception exception){
                     exception.getMessage();
                 }
